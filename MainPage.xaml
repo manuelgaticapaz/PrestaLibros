@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PrestaLibros.MainPage"
+             Title="PrestaLibros - Panel Principal"
+             BackgroundColor="#f4f6f8">
+
+    <Grid RowDefinitions="Auto, Auto, *">
+
+        <!-- 1. TÍTULO DE LA APP -->
+        <Label Grid.Row="0"
+               Text="📚 PrestaLibros" 
+               FontSize="22" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center" 
+               TextColor="#2c3e50"
+               Margin="0,15,0,10"/>
+
+        <!-- 2. MENÚ DE SELECCIÓN RÁPIDA (Pestañas horizontales) -->
+        <HorizontalStackLayout Grid.Row="1" 
+                               Spacing="10" 
+                               HorizontalOptions="Center" 
+                               Margin="0,0,0,15">
+
+            <Button x:Name="BtnLibros" 
+                    Text="📖 Libros" 
+                    BackgroundColor="#3498db" 
+                    TextColor="White" 
+                    CornerRadius="20"
+                    HeightRequest="40"
+                    Clicked="OnFiltroLibrosClicked"/>
+
+            <Button x:Name="BtnLectores" 
+                    Text="👥 Lectores" 
+                    BackgroundColor="#e0e0e0" 
+                    TextColor="#2c3e50" 
+                    CornerRadius="20"
+                    HeightRequest="40"
+                    Clicked="OnFiltroLectoresClicked"/>
+
+            <Button x:Name="BtnPrestamos" 
+                    Text="🔄 Préstamos" 
+                    BackgroundColor="#e0e0e0" 
+                    TextColor="#2c3e50" 
+                    CornerRadius="20"
+                    HeightRequest="40"
+                    Clicked="OnFiltroPrestamosClicked"/>
+        </HorizontalStackLayout>
+
+        <!-- 3. ZONA DE CONTENIDO Y BOTÓN NUEVO (+) (Zona Roja que pediste) -->
+        <Border Grid.Row="2"
+                BackgroundColor="White" 
+                StrokeShape="RoundRectangle 20,20,0,0" 
+                StrokeThickness="0"
+                Padding="20">
+
+            <Grid RowDefinitions="Auto, *">
+
+                <!-- Encabezado de la sección actual + Botón flotante (+) -->
+                <Grid Grid.Row="0" ColumnDefinitions="*, Auto" Margin="0,0,0,15">
+                    <Label x:Name="LblSeccionTitulo" 
+                           Text="Gestión de Libros" 
+                           FontSize="18" 
+                           FontAttributes="Bold" 
+                           TextColor="#2c3e50" 
+                           VerticalOptions="Center"/>
+
+                    <!-- Botón circular "+" para agregar nuevo elemento -->
+                    <Button Grid.Column="1"
+                            Text="+" 
+                            FontSize="22"
+                            FontAttributes="Bold"
+                            BackgroundColor="#2ecc71" 
+                            TextColor="White" 
+                            CornerRadius="22"
+                            WidthRequest="45"
+                            HeightRequest="45"
+                            Padding="0"
+                            Clicked="OnNuevoElementoClicked"/>
+                </Grid>
+
+                <!-- CollectionView para listar los libros de SQLite -->
+                <CollectionView x:Name="CvElementos" Grid.Row="1" SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border BackgroundColor="#f8f9fa" 
+                            StrokeShape="RoundRectangle 10" 
+                            StrokeThickness="1" 
+                            Stroke="#e2e8f0" 
+                            Padding="12" 
+                            Margin="0,0,0,8">
+                                <Grid ColumnDefinitions="*, Auto">
+                                    <VerticalStackLayout Grid.Column="0" Spacing="3">
+                                        <!-- Título del libro -->
+                                        <Label Text="{Binding titulo}" FontSize="15" FontAttributes="Bold" TextColor="#2c3e50"/>
+                                        <!-- Autor y Stock -->
+                                        <HorizontalStackLayout Spacing="10">
+                                            <Label Text="{Binding autor, StringFormat='Autor: {0}'}" FontSize="12" TextColor="#7f8c8d"/>
+                                            <Label Text="{Binding stock_disponible, StringFormat='Stock: {0}'}" FontSize="12" TextColor="#27ae60" FontAttributes="Bold"/>
+                                        </HorizontalStackLayout>
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </Grid>
+        </Border>
+
+    </Grid>
+</ContentPage>

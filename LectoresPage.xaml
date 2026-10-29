@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PrestaLibros.LectoresPage"
+             Title="Registrar Lector"
+             BackgroundColor="#f4f6f8">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="16">
+
+            <!-- Título Principal -->
+            <Label Text="👥 Registrar Nuevo Lector" 
+                   FontSize="22" 
+                   FontAttributes="Bold" 
+                   TextColor="#2c3e50" 
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,5"/>
+
+            <!-- Tarjeta contenedora con esquinas redondeadas -->
+            <Border BackgroundColor="White" 
+                    StrokeShape="RoundRectangle 16" 
+                    StrokeThickness="0" 
+                    Padding="20">
+                <VerticalStackLayout Spacing="12">
+
+                    <Label Text="Código de Carnet:" FontSize="13" FontAttributes="Bold" TextColor="#34495e"/>
+                    <Entry Placeholder="Código de Carnet del Lector" BackgroundColor="#f8f9fa" HeightRequest="45"/>
+
+                    <Label Text="Nombres:" FontSize="13" FontAttributes="Bold" TextColor="#34495e"/>
+                    <Entry Placeholder="Nombres del Lector" BackgroundColor="#f8f9fa" HeightRequest="45"/>
+
+                    <Label Text="Apellidos:" FontSize="13" FontAttributes="Bold" TextColor="#34495e"/>
+                    <Entry Placeholder="Apellidos del Lector" BackgroundColor="#f8f9fa" HeightRequest="45"/>
+
+                    <Label Text="Teléfono:" FontSize="13" FontAttributes="Bold" TextColor="#34495e"/>
+                    <Entry Placeholder="Número telefónico" Keyboard="Telephone" BackgroundColor="#f8f9fa" HeightRequest="45"/>
+
+                    <Label Text="Correo Electrónico:" FontSize="13" FontAttributes="Bold" TextColor="#34495e"/>
+                    <Entry Placeholder="correo@mail.com" Keyboard="Email" BackgroundColor="#f8f9fa" HeightRequest="45"/>
+
+                    <Label Text="Ruta Foto de Perfil:" FontSize="13" FontAttributes="Bold" TextColor="#34495e"/>
+                    <Entry Placeholder="Opcional (ej: foto.jpg)" BackgroundColor="#f8f9fa" HeightRequest="45"/>
+
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Botones de Acción -->
+            <VerticalStackLayout Spacing="10" Margin="0,5,0,10">
+                <Button Text="Guardar Lector" 
+                        BackgroundColor="#2ecc71" 
+                        TextColor="White" 
+                        FontAttributes="Bold" 
+                        CornerRadius="10"
+                        HeightRequest="50"/>
+                        <!--Clicked="guardarLectorClicked" -->
+                 
+
+                <Button Text="Cancelar" 
+                        BackgroundColor="#e0e0e0" 
+                        TextColor="#2c3e50" 
+                        FontAttributes="Bold" 
+                        CornerRadius="10"
+                        HeightRequest="50"/>
+                        <!--Clicked="cancelarLectorClicked" --> 
+                
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

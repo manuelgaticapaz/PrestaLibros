@@ -1,0 +1,10 @@
+<api type="debug" assembly-name="PrestaLibros" mvid="0bc1b6531d804841ad8e9909100e1203">
+  <java-to-managed>
+    <entry java-name="crc64a846f0d4b056fbdd/MainActivity" managed-name="PrestaLibros.MainActivity, PrestaLibros" managed-type-token-id="33554447" />
+    <entry java-name="crc64a846f0d4b056fbdd/MainApplication" managed-name="PrestaLibros.MainApplication, PrestaLibros" managed-type-token-id="33554448" />
+  </java-to-managed>
+  <managed-to-java>
+    <entry java-name="crc64a846f0d4b056fbdd/MainActivity" managed-name="PrestaLibros.MainActivity, PrestaLibros" managed-type-token-id="33554447" />
+    <entry java-name="crc64a846f0d4b056fbdd/MainApplication" managed-name="PrestaLibros.MainApplication, PrestaLibros" managed-type-token-id="33554448" />
+  </managed-to-java>
+</api>

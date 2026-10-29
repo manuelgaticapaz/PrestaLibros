@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Documentos\\Intecap\\MAUI\\PrestaLibros\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{60058384-FB97-4702-A8AC-C92AC351DB1F}|PrestaLibros.csproj|d:\\documentos\\intecap\\maui\\prestalibros\\librospage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60058384-FB97-4702-A8AC-C92AC351DB1F}|PrestaLibros.csproj|solutionrelative:librospage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60058384-FB97-4702-A8AC-C92AC351DB1F}|PrestaLibros.csproj|d:\\documentos\\intecap\\maui\\prestalibros\\librospage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{60058384-FB97-4702-A8AC-C92AC351DB1F}|PrestaLibros.csproj|solutionrelative:librospage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60058384-FB97-4702-A8AC-C92AC351DB1F}|PrestaLibros.csproj|d:\\documentos\\intecap\\maui\\prestalibros\\basededatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60058384-FB97-4702-A8AC-C92AC351DB1F}|PrestaLibros.csproj|solutionrelative:basededatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60058384-FB97-4702-A8AC-C92AC351DB1F}|PrestaLibros.csproj|d:\\documentos\\intecap\\maui\\prestalibros\\libro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60058384-FB97-4702-A8AC-C92AC351DB1F}|PrestaLibros.csproj|solutionrelative:libro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Libro.cs",
+              "DocumentMoniker": "D:\\Documentos\\Intecap\\MAUI\\PrestaLibros\\Libro.cs",
+              "RelativeDocumentMoniker": "Libro.cs",
+              "ToolTip": "D:\\Documentos\\Intecap\\MAUI\\PrestaLibros\\Libro.cs",
+              "RelativeToolTip": "Libro.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-28T04:07:56.273Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BaseDeDatos.cs",
+              "DocumentMoniker": "D:\\Documentos\\Intecap\\MAUI\\PrestaLibros\\BaseDeDatos.cs",
+              "RelativeDocumentMoniker": "BaseDeDatos.cs",
+              "ToolTip": "D:\\Documentos\\Intecap\\MAUI\\PrestaLibros\\BaseDeDatos.cs",
+              "RelativeToolTip": "BaseDeDatos.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACQAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-28T04:05:38.413Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LibrosPage.xaml.cs",
+              "DocumentMoniker": "D:\\Documentos\\Intecap\\MAUI\\PrestaLibros\\LibrosPage.xaml.cs",
+              "RelativeDocumentMoniker": "LibrosPage.xaml.cs",
+              "ToolTip": "D:\\Documentos\\Intecap\\MAUI\\PrestaLibros\\LibrosPage.xaml.cs",
+              "RelativeToolTip": "LibrosPage.xaml.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAA1wBEAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-28T04:02:39.869Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LibrosPage.xaml",
+              "DocumentMoniker": "D:\\Documentos\\Intecap\\MAUI\\PrestaLibros\\LibrosPage.xaml",
+              "RelativeDocumentMoniker": "LibrosPage.xaml",
+              "ToolTip": "D:\\Documentos\\Intecap\\MAUI\\PrestaLibros\\LibrosPage.xaml",
+              "RelativeToolTip": "LibrosPage.xaml",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAEEAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-10-28T03:18:13.985Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
