@@ -10,6 +10,7 @@ public class ContentViewGroup
 	public static final String __md_methods;
 	static {
 		__md_methods = 
+			"n_hasOverlappingRendering:()Z:GetHasOverlappingRenderingHandler\n" +
 			"n_onAttachedToWindow:()V:GetOnAttachedToWindowHandler\n" +
 			"n_onDetachedFromWindow:()V:GetOnDetachedFromWindowHandler\n" +
 			"n_onMeasure:(II)V:GetOnMeasure_IIHandler\n" +
@@ -51,6 +52,13 @@ public class ContentViewGroup
 			mono.android.TypeManager.Activate ("Microsoft.Maui.Platform.ContentViewGroup, Microsoft.Maui", "Android.Content.Context, Mono.Android:Android.Util.IAttributeSet, Mono.Android:System.Int32, System.Private.CoreLib:System.Int32, System.Private.CoreLib", this, new java.lang.Object[] { p0, p1, p2, p3 });
 		}
 	}
+
+	public boolean hasOverlappingRendering ()
+	{
+		return n_hasOverlappingRendering ();
+	}
+
+	private native boolean n_hasOverlappingRendering ();
 
 	public void onAttachedToWindow ()
 	{

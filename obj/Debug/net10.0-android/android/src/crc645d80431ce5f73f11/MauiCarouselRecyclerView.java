@@ -14,6 +14,8 @@ public class MauiCarouselRecyclerView
 			"n_onTouchEvent:(Landroid/view/MotionEvent;)Z:GetOnTouchEvent_Landroid_view_MotionEvent_Handler\n" +
 			"n_onAttachedToWindow:()V:GetOnAttachedToWindowHandler\n" +
 			"n_onDetachedFromWindow:()V:GetOnDetachedFromWindowHandler\n" +
+			"n_requestChildRectangleOnScreen:(Landroid/view/View;Landroid/graphics/Rect;Z)Z:GetRequestChildRectangleOnScreen_Landroid_view_View_Landroid_graphics_Rect_ZHandler\n" +
+			"n_requestChildFocus:(Landroid/view/View;Landroid/view/View;)V:GetRequestChildFocus_Landroid_view_View_Landroid_view_View_Handler\n" +
 			"n_onMeasure:(II)V:GetOnMeasure_IIHandler\n" +
 			"";
 		mono.android.Runtime.register ("Microsoft.Maui.Controls.Handlers.Items.MauiCarouselRecyclerView, Microsoft.Maui.Controls", MauiCarouselRecyclerView.class, __md_methods);
@@ -70,6 +72,20 @@ public class MauiCarouselRecyclerView
 	}
 
 	private native void n_onDetachedFromWindow ();
+
+	public boolean requestChildRectangleOnScreen (android.view.View p0, android.graphics.Rect p1, boolean p2)
+	{
+		return n_requestChildRectangleOnScreen (p0, p1, p2);
+	}
+
+	private native boolean n_requestChildRectangleOnScreen (android.view.View p0, android.graphics.Rect p1, boolean p2);
+
+	public void requestChildFocus (android.view.View p0, android.view.View p1)
+	{
+		n_requestChildFocus (p0, p1);
+	}
+
+	private native void n_requestChildFocus (android.view.View p0, android.view.View p1);
 
 	public void onMeasure (int p0, int p1)
 	{

@@ -1,9 +1,166 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PrestaLibros.MainPage"
              Title="PrestaLibros - Panel Principal"
-             BackgroundColor="#f4f6f8">
+             BackgroundColor="{AppThemeBinding Light=#f4f6f8, Dark=#121212}">
+
+    <ContentPage.Resources>
+        <!-- Plantilla para Libros -->
+        <DataTemplate x:Key="LibroTemplate">
+            <Border BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#252526}" 
+                    StrokeShape="RoundRectangle 10" 
+                    StrokeThickness="1" 
+                    Stroke="{AppThemeBinding Light=#e2e8f0, Dark=#3a3a3c}" 
+                    Padding="12" 
+                    Margin="0,0,0,8">
+                <!-- Grid con espacio entre columnas y botón de ancho fijo para evitar superposición en pantallas pequeñas -->
+                <Grid ColumnDefinitions="*, Auto" ColumnSpacing="12" VerticalOptions="Center">
+                    <VerticalStackLayout Grid.Column="0" Spacing="4">
+                        <Label Text="{Binding titulo}" 
+                               FontSize="15" 
+                               FontAttributes="Bold" 
+                               TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
+                               LineBreakMode="TailTruncation"
+                               MaxLines="2"/>
+                        <Grid ColumnDefinitions="*, Auto" ColumnSpacing="8">
+                            <Label Grid.Column="0" 
+                                   Text="{Binding autor, StringFormat='Autor: {0}'}" 
+                                   FontSize="12" 
+                                   TextColor="{AppThemeBinding Light=#7f8c8d, Dark=#a0a0a0}"
+                                   LineBreakMode="TailTruncation"/>
+                            <Label Grid.Column="1" 
+                                   Text="{Binding stock_disponible, StringFormat='Stock: {0}'}" 
+                                   FontSize="12" 
+                                   TextColor="{AppThemeBinding Light=#27ae60, Dark=#2ecc71}" 
+                                   FontAttributes="Bold"/>
+                        </Grid>
+                    </VerticalStackLayout>
+
+                    <Button Grid.Column="1"
+                            Text="👁️ Ver"
+                            FontSize="12"
+                            FontAttributes="Bold"
+                            BackgroundColor="#3498db"
+                            TextColor="White"
+                            CornerRadius="8"
+                            WidthRequest="68"
+                            HeightRequest="36"
+                            Padding="0"
+                            HorizontalOptions="End"
+                            VerticalOptions="Center"
+                            Clicked="OnVerElementoClicked"
+                            CommandParameter="{Binding .}"/>
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+        <!-- Plantilla para Lectores -->
+        <DataTemplate x:Key="LectorTemplate">
+            <Border BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#252526}" 
+                    StrokeShape="RoundRectangle 10" 
+                    StrokeThickness="1" 
+                    Stroke="{AppThemeBinding Light=#e2e8f0, Dark=#3a3a3c}" 
+                    Padding="12" 
+                    Margin="0,0,0,8">
+                <Grid ColumnDefinitions="*, Auto" ColumnSpacing="12" VerticalOptions="Center">
+                    <VerticalStackLayout Grid.Column="0" Spacing="3">
+                        <Label Text="{Binding codigo_carnet, StringFormat='Carnet: {0}'}" 
+                               FontSize="15" 
+                               FontAttributes="Bold" 
+                               TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
+                               LineBreakMode="TailTruncation"/>
+                        <Label Text="{Binding NombreCompleto, StringFormat='Lector: {0}'}" 
+                               FontSize="12" 
+                               TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"
+                               LineBreakMode="TailTruncation"/>
+                        <Grid ColumnDefinitions="Auto, *" ColumnSpacing="10">
+                            <Label Grid.Column="0" 
+                                   Text="{Binding telefono, StringFormat='Tel: {0}'}" 
+                                   FontSize="11" 
+                                   TextColor="{AppThemeBinding Light=#7f8c8d, Dark=#a0a0a0}"/>
+                            <Label Grid.Column="1" 
+                                   Text="{Binding correo}" 
+                                   FontSize="11" 
+                                   TextColor="{AppThemeBinding Light=#7f8c8d, Dark=#a0a0a0}"
+                                   LineBreakMode="TailTruncation"/>
+                        </Grid>
+                    </VerticalStackLayout>
+
+                    <Button Grid.Column="1"
+                            Text="👁️ Ver"
+                            FontSize="12"
+                            FontAttributes="Bold"
+                            BackgroundColor="#3498db"
+                            TextColor="White"
+                            CornerRadius="8"
+                            WidthRequest="68"
+                            HeightRequest="36"
+                            Padding="0"
+                            HorizontalOptions="End"
+                            VerticalOptions="Center"
+                            Clicked="OnVerElementoClicked"
+                            CommandParameter="{Binding .}"/>
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+        <!-- Plantilla para Préstamos -->
+        <DataTemplate x:Key="PrestamoTemplate">
+            <Border BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#252526}" 
+                    StrokeShape="RoundRectangle 10" 
+                    StrokeThickness="1" 
+                    Stroke="{AppThemeBinding Light=#e2e8f0, Dark=#3a3a3c}" 
+                    Padding="12" 
+                    Margin="0,0,0,8">
+                <Grid ColumnDefinitions="*, Auto" ColumnSpacing="12" VerticalOptions="Center">
+                    <VerticalStackLayout Grid.Column="0" Spacing="3">
+                        <Label Text="{Binding TituloLibro}" 
+                               FontSize="15" 
+                               FontAttributes="Bold" 
+                               TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
+                               LineBreakMode="TailTruncation"
+                               MaxLines="2"/>
+                        <Label Text="{Binding NombreLector, StringFormat='Lector: {0}'}" 
+                               FontSize="12" 
+                               TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"
+                               LineBreakMode="TailTruncation"/>
+                        <Grid ColumnDefinitions="*, Auto" ColumnSpacing="8">
+                            <Label Grid.Column="0" 
+                                   Text="{Binding fecha_prestamo, StringFormat='Prestado: {0}'}" 
+                                   FontSize="11" 
+                                   TextColor="{AppThemeBinding Light=#7f8c8d, Dark=#a0a0a0}"
+                                   LineBreakMode="TailTruncation"/>
+                            <Label Grid.Column="1" 
+                                   Text="{Binding estado_prestamo, StringFormat='[{0}]'}" 
+                                   FontSize="11" 
+                                   TextColor="{AppThemeBinding Light=#e67e22, Dark=#f39c12}" 
+                                   FontAttributes="Bold"/>
+                        </Grid>
+                        <Label Text="{Binding fecha_devolucion_esperada, StringFormat='Devolución: {0}'}" 
+                               FontSize="11" 
+                               TextColor="{AppThemeBinding Light=#7f8c8d, Dark=#a0a0a0}"
+                               LineBreakMode="TailTruncation"/>
+                    </VerticalStackLayout>
+
+                    <Button Grid.Column="1"
+                            Text="👁️ Ver"
+                            FontSize="12"
+                            FontAttributes="Bold"
+                            BackgroundColor="#3498db"
+                            TextColor="White"
+                            CornerRadius="8"
+                            WidthRequest="68"
+                            HeightRequest="36"
+                            Padding="0"
+                            HorizontalOptions="End"
+                            VerticalOptions="Center"
+                            Clicked="OnVerElementoClicked"
+                            CommandParameter="{Binding .}"/>
+                </Grid>
+            </Border>
+        </DataTemplate>
+    </ContentPage.Resources>
 
     <Grid RowDefinitions="Auto, Auto, *">
 
@@ -13,7 +170,7 @@
                FontSize="22" 
                FontAttributes="Bold" 
                HorizontalOptions="Center" 
-               TextColor="#2c3e50"
+               TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}" 
                Margin="0,15,0,10"/>
 
         <!-- 2. MENÚ DE SELECCIÓN RÁPIDA (Pestañas horizontales) -->
@@ -28,31 +185,37 @@
                     TextColor="White" 
                     CornerRadius="20"
                     HeightRequest="40"
+                    Padding="14,0"
+                    FontSize="13"
                     Clicked="OnFiltroLibrosClicked"/>
 
             <Button x:Name="BtnLectores" 
                     Text="👥 Lectores" 
-                    BackgroundColor="#e0e0e0" 
-                    TextColor="#2c3e50" 
+                    BackgroundColor="{AppThemeBinding Light=#e0e0e0, Dark=#2c2c2e}" 
+                    TextColor="{AppThemeBinding Light=#2c3e50, Dark=#e4e6eb}" 
                     CornerRadius="20"
                     HeightRequest="40"
+                    Padding="14,0"
+                    FontSize="13"
                     Clicked="OnFiltroLectoresClicked"/>
 
             <Button x:Name="BtnPrestamos" 
                     Text="🔄 Préstamos" 
-                    BackgroundColor="#e0e0e0" 
-                    TextColor="#2c3e50" 
+                    BackgroundColor="{AppThemeBinding Light=#e0e0e0, Dark=#2c2c2e}" 
+                    TextColor="{AppThemeBinding Light=#2c3e50, Dark=#e4e6eb}" 
                     CornerRadius="20"
                     HeightRequest="40"
+                    Padding="14,0"
+                    FontSize="13"
                     Clicked="OnFiltroPrestamosClicked"/>
         </HorizontalStackLayout>
 
-        <!-- 3. ZONA DE CONTENIDO Y BOTÓN NUEVO (+) (Zona Roja que pediste) -->
+        <!-- 3. ZONA DE CONTENIDO Y BOTÓN NUEVO (+) -->
         <Border Grid.Row="2"
-                BackgroundColor="White" 
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#1e1e1e}" 
                 StrokeShape="RoundRectangle 20,20,0,0" 
                 StrokeThickness="0"
-                Padding="20">
+                Padding="16">
 
             <Grid RowDefinitions="Auto, *">
 
@@ -62,7 +225,7 @@
                            Text="Gestión de Libros" 
                            FontSize="18" 
                            FontAttributes="Bold" 
-                           TextColor="#2c3e50" 
+                           TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}" 
                            VerticalOptions="Center"/>
 
                     <!-- Botón circular "+" para agregar nuevo elemento -->
@@ -79,31 +242,11 @@
                             Clicked="OnNuevoElementoClicked"/>
                 </Grid>
 
-                <!-- CollectionView para listar los libros de SQLite -->
-                <CollectionView x:Name="CvElementos" Grid.Row="1" SelectionMode="None">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Border BackgroundColor="#f8f9fa" 
-                            StrokeShape="RoundRectangle 10" 
-                            StrokeThickness="1" 
-                            Stroke="#e2e8f0" 
-                            Padding="12" 
-                            Margin="0,0,0,8">
-                                <Grid ColumnDefinitions="*, Auto">
-                                    <VerticalStackLayout Grid.Column="0" Spacing="3">
-                                        <!-- Título del libro -->
-                                        <Label Text="{Binding titulo}" FontSize="15" FontAttributes="Bold" TextColor="#2c3e50"/>
-                                        <!-- Autor y Stock -->
-                                        <HorizontalStackLayout Spacing="10">
-                                            <Label Text="{Binding autor, StringFormat='Autor: {0}'}" FontSize="12" TextColor="#7f8c8d"/>
-                                            <Label Text="{Binding stock_disponible, StringFormat='Stock: {0}'}" FontSize="12" TextColor="#27ae60" FontAttributes="Bold"/>
-                                        </HorizontalStackLayout>
-                                    </VerticalStackLayout>
-                                </Grid>
-                            </Border>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
+                <!-- CollectionView para listar los elementos -->
+                <CollectionView x:Name="CvElementos" 
+                                Grid.Row="1" 
+                                SelectionMode="None" 
+                                ItemTemplate="{StaticResource LibroTemplate}"/>
 
             </Grid>
         </Border>

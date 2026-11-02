@@ -1,4 +1,4 @@
-﻿using SQLite;
+using SQLite;
 
 namespace PrestaLibros
 {
@@ -15,5 +15,8 @@ namespace PrestaLibros
         public string portada { get; set; }
         public int stock_disponible { get; set; }
         public string libros_prestamo { get; set; }
+
+        [Ignore]
+        public string TituloConStock => $"{titulo} (Disponibles: {stock_disponible})";
     }
 }

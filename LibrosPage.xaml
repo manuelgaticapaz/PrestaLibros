@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PrestaLibros.LibrosPage"
              Title="Registrar Libro"
-             BackgroundColor="#f4f6f8">
+             BackgroundColor="{AppThemeBinding Light=#f4f6f8, Dark=#121212}">
 
     <ScrollView>
         <VerticalStackLayout Padding="24" Spacing="16">
@@ -12,44 +12,83 @@
             <Label Text="📖 Registrar Nuevo Libro" 
                    FontSize="22" 
                    FontAttributes="Bold" 
-                   TextColor="#2c3e50" 
+                   TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}" 
                    HorizontalOptions="Center"
                    Margin="0,0,0,5"/>
 
             <!-- Tarjeta contenedora con esquinas redondeadas -->
-            <Border BackgroundColor="White" 
+            <Border BackgroundColor="{AppThemeBinding Light=White, Dark=#1e1e1e}" 
                     StrokeShape="RoundRectangle 16" 
-                    StrokeThickness="0" 
+                    Stroke="{AppThemeBinding Light=#e2e8f0, Dark=#333333}"
+                    StrokeThickness="1" 
                     Padding="20">
                 <VerticalStackLayout Spacing="12">
 
-                    <Label Text="ISBN:" FontSize="13" FontAttributes="Bold" TextColor="#34495e"/>
-                    <Entry x:Name="txtIsbn" Placeholder="Ej: 978-3-16-148410-0" BackgroundColor="#f8f9fa" HeightRequest="45"/>
+                    <Label Text="ISBN:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+                    <Entry x:Name="txtIsbn" 
+                           Placeholder="Ej: 978-3-16-148410-0" 
+                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                           TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
+                           PlaceholderColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
+                           HeightRequest="45"/>
 
-                    <Label Text="Título:" FontSize="13" FontAttributes="Bold" TextColor="#34495e"/>
-                    <Entry x:Name="txtTitulo" Placeholder="Título del libro" BackgroundColor="#f8f9fa" HeightRequest="45"/>
+                    <Label Text="Título:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+                    <Entry x:Name="txtTitulo" 
+                           Placeholder="Título del libro" 
+                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                           TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
+                           PlaceholderColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
+                           HeightRequest="45"/>
 
-                    <Label Text="Autor:" FontSize="13" FontAttributes="Bold" TextColor="#34495e"/>
-                    <Entry x:Name="txtAutor" Placeholder="Autor o autores" BackgroundColor="#f8f9fa" HeightRequest="45"/>
+                    <Label Text="Autor:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+                    <Entry x:Name="txtAutor" 
+                           Placeholder="Autor o autores" 
+                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                           TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
+                           PlaceholderColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
+                           HeightRequest="45"/>
 
-                    <Label Text="Editorial:" FontSize="13" FontAttributes="Bold" TextColor="#34495e"/>
-                    <Entry x:Name="txtEditorial" Placeholder="Editorial" BackgroundColor="#f8f9fa" HeightRequest="45"/>
+                    <Label Text="Editorial:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+                    <Entry x:Name="txtEditorial" 
+                           Placeholder="Editorial" 
+                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                           TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
+                           PlaceholderColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
+                           HeightRequest="45"/>
 
-                    <Label Text="Año de Publicación:" FontSize="13" FontAttributes="Bold" TextColor="#34495e"/>
-                    <Entry x:Name="txtAnio" Placeholder="Ej: 2023" Keyboard="Numeric" BackgroundColor="#f8f9fa" HeightRequest="45"/>
+                    <Label Text="Año de Publicación:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+                    <Entry x:Name="txtAnio" 
+                           Placeholder="Ej: 2023" 
+                           Keyboard="Numeric" 
+                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                           TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
+                           PlaceholderColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
+                           HeightRequest="45"/>
 
-                    <Label Text="Ruta o URL Portada:" FontSize="13" FontAttributes="Bold" TextColor="#34495e"/>
-                    <Entry x:Name="txtPortada" Placeholder="Opcional (ej: portada.jpg)" BackgroundColor="#f8f9fa" HeightRequest="45"/>
+                    <Label Text="Ruta o URL Portada:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+                    <Entry x:Name="txtPortada" 
+                           Placeholder="Opcional (ej: portada.jpg)" 
+                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                           TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
+                           PlaceholderColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
+                           HeightRequest="45"/>
 
-                    <Label Text="Stock Disponible:" FontSize="13" FontAttributes="Bold" TextColor="#34495e"/>
-                    <Entry x:Name="txtStock" Placeholder="Ej: 5" Keyboard="Numeric" BackgroundColor="#f8f9fa" HeightRequest="45"/>
+                    <Label Text="Stock Disponible:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+                    <Entry x:Name="txtStock" 
+                           Placeholder="Ej: 5" 
+                           Keyboard="Numeric" 
+                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                           TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
+                           PlaceholderColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
+                           HeightRequest="45"/>
 
                 </VerticalStackLayout>
             </Border>
 
             <!-- Botones de Acción -->
             <VerticalStackLayout Spacing="10" Margin="0,5,0,10">
-                <Button Text="Guardar Libro" 
+                <Button x:Name="BtnGuardar"
+                        Text="Guardar Libro" 
                         BackgroundColor="#2ecc71" 
                         TextColor="White" 
                         FontAttributes="Bold" 
@@ -57,9 +96,29 @@
                         HeightRequest="50"
                         Clicked="guardarLibroClicked"/>
 
-                <Button Text="Cancelar" 
-                        BackgroundColor="#e0e0e0" 
-                        TextColor="#2c3e50" 
+                <Button x:Name="BtnEditar"
+                        Text="Editar" 
+                        BackgroundColor="#f39c12" 
+                        TextColor="White" 
+                        FontAttributes="Bold" 
+                        CornerRadius="10"
+                        HeightRequest="50"
+                        IsVisible="False"
+                        Clicked="BtnEditar_Clicked"/>
+
+                <Button x:Name="BtnEliminar"
+                        Text="Eliminar" 
+                        BackgroundColor="#e74c3c" 
+                        TextColor="White" 
+                        FontAttributes="Bold" 
+                        CornerRadius="10"
+                        HeightRequest="50"
+                        IsVisible="False"
+                        Clicked="BtnEliminar_Clicked"/>
+
+                <Button Text="Cancelar/Volver" 
+                        BackgroundColor="{AppThemeBinding Light=#e0e0e0, Dark=#2c2c2e}" 
+                        TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}" 
                         FontAttributes="Bold" 
                         CornerRadius="10"
                         HeightRequest="50"

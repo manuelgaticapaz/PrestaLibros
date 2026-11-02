@@ -10,6 +10,10 @@ public class MauiWebView
 	public static final String __md_methods;
 	static {
 		__md_methods = 
+			"n_onSizeChanged:(IIII)V:GetOnSizeChanged_IIIIHandler\n" +
+			"n_onAttachedToWindow:()V:GetOnAttachedToWindowHandler\n" +
+			"n_onDetachedFromWindow:()V:GetOnDetachedFromWindowHandler\n" +
+			"n_onTouchEvent:(Landroid/view/MotionEvent;)Z:GetOnTouchEvent_Landroid_view_MotionEvent_Handler\n" +
 			"";
 		mono.android.Runtime.register ("Microsoft.Maui.Platform.MauiWebView, Microsoft.Maui", MauiWebView.class, __md_methods);
 	}
@@ -53,6 +57,34 @@ public class MauiWebView
 			mono.android.TypeManager.Activate ("Microsoft.Maui.Platform.MauiWebView, Microsoft.Maui", "Android.Content.Context, Mono.Android", this, new java.lang.Object[] { p0 });
 		}
 	}
+
+	public void onSizeChanged (int p0, int p1, int p2, int p3)
+	{
+		n_onSizeChanged (p0, p1, p2, p3);
+	}
+
+	private native void n_onSizeChanged (int p0, int p1, int p2, int p3);
+
+	public void onAttachedToWindow ()
+	{
+		n_onAttachedToWindow ();
+	}
+
+	private native void n_onAttachedToWindow ();
+
+	public void onDetachedFromWindow ()
+	{
+		n_onDetachedFromWindow ();
+	}
+
+	private native void n_onDetachedFromWindow ();
+
+	public boolean onTouchEvent (android.view.MotionEvent p0)
+	{
+		return n_onTouchEvent (p0);
+	}
+
+	private native boolean n_onTouchEvent (android.view.MotionEvent p0);
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

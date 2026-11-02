@@ -11,8 +11,10 @@ public class MauiScrollView
 	public static final String __md_methods;
 	static {
 		__md_methods = 
+			"n_setOnTouchListener:(Landroid/view/View$OnTouchListener;)V:GetSetOnTouchListener_Landroid_view_View_OnTouchListener_Handler\n" +
 			"n_onAttachedToWindow:()V:GetOnAttachedToWindowHandler\n" +
 			"n_onDetachedFromWindow:()V:GetOnDetachedFromWindowHandler\n" +
+			"n_onVisibilityChanged:(Landroid/view/View;I)V:GetOnVisibilityChanged_Landroid_view_View_IHandler\n" +
 			"n_onInterceptTouchEvent:(Landroid/view/MotionEvent;)Z:GetOnInterceptTouchEvent_Landroid_view_MotionEvent_Handler\n" +
 			"n_onTouchEvent:(Landroid/view/MotionEvent;)Z:GetOnTouchEvent_Landroid_view_MotionEvent_Handler\n" +
 			"n_onMeasure:(II)V:GetOnMeasure_IIHandler\n" +
@@ -47,6 +49,13 @@ public class MauiScrollView
 		}
 	}
 
+	public void setOnTouchListener (android.view.View.OnTouchListener p0)
+	{
+		n_setOnTouchListener (p0);
+	}
+
+	private native void n_setOnTouchListener (android.view.View.OnTouchListener p0);
+
 	public void onAttachedToWindow ()
 	{
 		n_onAttachedToWindow ();
@@ -60,6 +69,13 @@ public class MauiScrollView
 	}
 
 	private native void n_onDetachedFromWindow ();
+
+	public void onVisibilityChanged (android.view.View p0, int p1)
+	{
+		n_onVisibilityChanged (p0, p1);
+	}
+
+	private native void n_onVisibilityChanged (android.view.View p0, int p1);
 
 	public boolean onInterceptTouchEvent (android.view.MotionEvent p0)
 	{

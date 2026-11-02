@@ -4,7 +4,10 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:PrestaLibros"
-    Title="PrestaLibros">
+    Title="PrestaLibros"
+    Shell.BackgroundColor="{AppThemeBinding Light=#3498db, Dark=#1e1e1e}"
+    Shell.ForegroundColor="White"
+    Shell.TitleColor="White">
 
     <ShellContent
         Title=""

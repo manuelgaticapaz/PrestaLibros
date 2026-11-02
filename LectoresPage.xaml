@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PrestaLibros.LectoresPage"
              Title="Registrar Lector"
-             BackgroundColor="#f4f6f8">
+             BackgroundColor="{AppThemeBinding Light=#f4f6f8, Dark=#121212}">
 
     <ScrollView>
         <VerticalStackLayout Padding="24" Spacing="16">
@@ -12,34 +12,67 @@
             <Label Text="👥 Registrar Nuevo Lector" 
                    FontSize="22" 
                    FontAttributes="Bold" 
-                   TextColor="#2c3e50" 
+                   TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}" 
                    HorizontalOptions="Center"
                    Margin="0,0,0,5"/>
 
             <!-- Tarjeta contenedora con esquinas redondeadas -->
-            <Border BackgroundColor="White" 
+            <Border BackgroundColor="{AppThemeBinding Light=White, Dark=#1e1e1e}" 
                     StrokeShape="RoundRectangle 16" 
-                    StrokeThickness="0" 
+                    Stroke="{AppThemeBinding Light=#e2e8f0, Dark=#333333}"
+                    StrokeThickness="1" 
                     Padding="20">
                 <VerticalStackLayout Spacing="12">
 
-                    <Label Text="Código de Carnet:" FontSize="13" FontAttributes="Bold" TextColor="#34495e"/>
-                    <Entry Placeholder="Código de Carnet del Lector" BackgroundColor="#f8f9fa" HeightRequest="45"/>
+                    <Label Text="Código de Carnet:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+                    <Entry x:Name="txtCodigoCarnet" 
+                           Placeholder="Código de Carnet del Lector" 
+                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                           TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
+                           PlaceholderColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
+                           HeightRequest="45"/>
 
-                    <Label Text="Nombres:" FontSize="13" FontAttributes="Bold" TextColor="#34495e"/>
-                    <Entry Placeholder="Nombres del Lector" BackgroundColor="#f8f9fa" HeightRequest="45"/>
+                    <Label Text="Nombres:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+                    <Entry x:Name="txtNombres" 
+                           Placeholder="Nombres del Lector" 
+                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                           TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
+                           PlaceholderColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
+                           HeightRequest="45"/>
 
-                    <Label Text="Apellidos:" FontSize="13" FontAttributes="Bold" TextColor="#34495e"/>
-                    <Entry Placeholder="Apellidos del Lector" BackgroundColor="#f8f9fa" HeightRequest="45"/>
+                    <Label Text="Apellidos:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+                    <Entry x:Name="txtApellidos" 
+                           Placeholder="Apellidos del Lector" 
+                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                           TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
+                           PlaceholderColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
+                           HeightRequest="45"/>
 
-                    <Label Text="Teléfono:" FontSize="13" FontAttributes="Bold" TextColor="#34495e"/>
-                    <Entry Placeholder="Número telefónico" Keyboard="Telephone" BackgroundColor="#f8f9fa" HeightRequest="45"/>
+                    <Label Text="Teléfono:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+                    <Entry x:Name="txtTelefono" 
+                           Placeholder="Número telefónico" 
+                           Keyboard="Telephone" 
+                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                           TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
+                           PlaceholderColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
+                           HeightRequest="45"/>
 
-                    <Label Text="Correo Electrónico:" FontSize="13" FontAttributes="Bold" TextColor="#34495e"/>
-                    <Entry Placeholder="correo@mail.com" Keyboard="Email" BackgroundColor="#f8f9fa" HeightRequest="45"/>
+                    <Label Text="Correo Electrónico:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+                    <Entry x:Name="txtCorreo" 
+                           Placeholder="correo@mail.com" 
+                           Keyboard="Email" 
+                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                           TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
+                           PlaceholderColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
+                           HeightRequest="45"/>
 
-                    <Label Text="Ruta Foto de Perfil:" FontSize="13" FontAttributes="Bold" TextColor="#34495e"/>
-                    <Entry Placeholder="Opcional (ej: foto.jpg)" BackgroundColor="#f8f9fa" HeightRequest="45"/>
+                    <Label Text="Ruta Foto de Perfil:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+                    <Entry x:Name="txtFotoPerfil" 
+                           Placeholder="Opcional (ej: foto.jpg)" 
+                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                           TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
+                           PlaceholderColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
+                           HeightRequest="45"/>
 
                 </VerticalStackLayout>
             </Border>
@@ -51,18 +84,17 @@
                         TextColor="White" 
                         FontAttributes="Bold" 
                         CornerRadius="10"
-                        HeightRequest="50"/>
-                        <!--Clicked="guardarLectorClicked" -->
-                 
+                        HeightRequest="50"
+                        Clicked="guardarLectorClicked"/>
 
                 <Button Text="Cancelar" 
-                        BackgroundColor="#e0e0e0" 
-                        TextColor="#2c3e50" 
+                        BackgroundColor="{AppThemeBinding Light=#e0e0e0, Dark=#2c2c2e}" 
+                        TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}" 
                         FontAttributes="Bold" 
                         CornerRadius="10"
-                        HeightRequest="50"/>
-                        <!--Clicked="cancelarLectorClicked" --> 
-                
+                        HeightRequest="50"
+                        Clicked="cancelarLectorClicked"/>
+
             </VerticalStackLayout>
 
         </VerticalStackLayout>

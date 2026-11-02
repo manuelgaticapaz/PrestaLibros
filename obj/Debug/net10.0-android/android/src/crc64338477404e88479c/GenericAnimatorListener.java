@@ -13,7 +13,6 @@ public class GenericAnimatorListener
 			"n_onAnimationCancel:(Landroid/animation/Animator;)V:GetOnAnimationCancel_Landroid_animation_Animator_Handler\n" +
 			"n_onAnimationEnd:(Landroid/animation/Animator;)V:GetOnAnimationEnd_Landroid_animation_Animator_Handler\n" +
 			"n_onAnimationRepeat:(Landroid/animation/Animator;)V:GetOnAnimationRepeat_Landroid_animation_Animator_Handler\n" +
-			"n_finalize:()V:GetJavaFinalizeHandler\n" +
 			"";
 		mono.android.Runtime.register ("Microsoft.Maui.Controls.Platform.GenericAnimatorListener, Microsoft.Maui.Controls", GenericAnimatorListener.class, __md_methods);
 	}
@@ -46,13 +45,6 @@ public class GenericAnimatorListener
 	}
 
 	private native void n_onAnimationRepeat (android.animation.Animator p0);
-
-	public void finalize ()
-	{
-		n_finalize ();
-	}
-
-	private native void n_finalize ();
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

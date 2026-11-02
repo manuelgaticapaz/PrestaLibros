@@ -11,6 +11,7 @@ public class MauiPickerBase
 	static {
 		__md_methods = 
 			"n_getDefaultMovementMethod:()Landroid/text/method/MovementMethod;:GetGetDefaultMovementMethodHandler\n" +
+			"n_onTouchEvent:(Landroid/view/MotionEvent;)Z:GetOnTouchEvent_Landroid_view_MotionEvent_Handler\n" +
 			"";
 		mono.android.Runtime.register ("Microsoft.Maui.Platform.MauiPickerBase, Microsoft.Maui", MauiPickerBase.class, __md_methods);
 	}
@@ -45,6 +46,13 @@ public class MauiPickerBase
 	}
 
 	private native android.text.method.MovementMethod n_getDefaultMovementMethod ();
+
+	public boolean onTouchEvent (android.view.MotionEvent p0)
+	{
+		return n_onTouchEvent (p0);
+	}
+
+	private native boolean n_onTouchEvent (android.view.MotionEvent p0);
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

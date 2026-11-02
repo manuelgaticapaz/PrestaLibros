@@ -10,6 +10,7 @@ public class WrapperView
 	public static final String __md_methods;
 	static {
 		__md_methods = 
+			"n_hasOverlappingRendering:()Z:GetHasOverlappingRenderingHandler\n" +
 			"n_onLayout:(ZIIII)V:GetOnLayout_ZIIIIHandler\n" +
 			"n_dispatchTouchEvent:(Landroid/view/MotionEvent;)Z:GetDispatchTouchEvent_Landroid_view_MotionEvent_Handler\n" +
 			"n_getClipPath:(II)Landroid/graphics/Path;:GetGetClipPath_IIHandler\n" +
@@ -26,6 +27,13 @@ public class WrapperView
 			mono.android.TypeManager.Activate ("Microsoft.Maui.Platform.WrapperView, Microsoft.Maui", "Android.Content.Context, Mono.Android", this, new java.lang.Object[] { p0 });
 		}
 	}
+
+	public boolean hasOverlappingRendering ()
+	{
+		return n_hasOverlappingRendering ();
+	}
+
+	private native boolean n_hasOverlappingRendering ();
 
 	public void onLayout (boolean p0, int p1, int p2, int p3, int p4)
 	{

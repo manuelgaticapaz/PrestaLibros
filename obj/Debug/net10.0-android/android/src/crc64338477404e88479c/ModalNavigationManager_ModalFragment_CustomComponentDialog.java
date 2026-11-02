@@ -15,6 +15,7 @@ public class ModalNavigationManager_ModalFragment_CustomComponentDialog
 			"n_onKeyMultiple:(IILandroid/view/KeyEvent;)Z:GetOnKeyMultiple_IILandroid_view_KeyEvent_Handler\n" +
 			"n_onKeyShortcut:(ILandroid/view/KeyEvent;)Z:GetOnKeyShortcut_ILandroid_view_KeyEvent_Handler\n" +
 			"n_onKeyUp:(ILandroid/view/KeyEvent;)Z:GetOnKeyUp_ILandroid_view_KeyEvent_Handler\n" +
+			"n_dispatchTouchEvent:(Landroid/view/MotionEvent;)Z:GetDispatchTouchEvent_Landroid_view_MotionEvent_Handler\n" +
 			"";
 		mono.android.Runtime.register ("Microsoft.Maui.Controls.Platform.ModalNavigationManager+ModalFragment+CustomComponentDialog, Microsoft.Maui.Controls", ModalNavigationManager_ModalFragment_CustomComponentDialog.class, __md_methods);
 	}
@@ -69,6 +70,13 @@ public class ModalNavigationManager_ModalFragment_CustomComponentDialog
 	}
 
 	private native boolean n_onKeyUp (int p0, android.view.KeyEvent p1);
+
+	public boolean dispatchTouchEvent (android.view.MotionEvent p0)
+	{
+		return n_dispatchTouchEvent (p0);
+	}
+
+	private native boolean n_dispatchTouchEvent (android.view.MotionEvent p0);
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

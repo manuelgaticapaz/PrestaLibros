@@ -13,6 +13,7 @@ public class MauiSwipeRefreshLayout
 			"n_onMeasure:(II)V:GetOnMeasure_IIHandler\n" +
 			"n_onLayout:(ZIIII)V:GetOnLayout_ZIIIIHandler\n" +
 			"n_canChildScrollUp:()Z:GetCanChildScrollUpHandler\n" +
+			"n_onInterceptTouchEvent:(Landroid/view/MotionEvent;)Z:GetOnInterceptTouchEvent_Landroid_view_MotionEvent_Handler\n" +
 			"";
 		mono.android.Runtime.register ("Microsoft.Maui.Platform.MauiSwipeRefreshLayout, Microsoft.Maui", MauiSwipeRefreshLayout.class, __md_methods);
 	}
@@ -53,6 +54,13 @@ public class MauiSwipeRefreshLayout
 	}
 
 	private native boolean n_canChildScrollUp ();
+
+	public boolean onInterceptTouchEvent (android.view.MotionEvent p0)
+	{
+		return n_onInterceptTouchEvent (p0);
+	}
+
+	private native boolean n_onInterceptTouchEvent (android.view.MotionEvent p0);
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

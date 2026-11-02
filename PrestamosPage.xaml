@@ -2,8 +2,142 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PrestaLibros.PrestamosPage"
-             >
-    <VerticalStackLayout>
-        
-    </VerticalStackLayout>
+             Title="Registrar Préstamo"
+             BackgroundColor="{AppThemeBinding Light=#f4f6f8, Dark=#121212}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="16">
+
+            <!-- Título Principal -->
+            <Label x:Name="LblTitulo"
+                   Text="🔄 Registrar Nuevo Préstamo" 
+                   FontSize="22" 
+                   FontAttributes="Bold" 
+                   TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}" 
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,5"/>
+
+            <!-- Tarjeta contenedora con esquinas redondeadas -->
+            <Border BackgroundColor="{AppThemeBinding Light=White, Dark=#1e1e1e}" 
+                    StrokeShape="RoundRectangle 16" 
+                    Stroke="{AppThemeBinding Light=#e2e8f0, Dark=#333333}"
+                    StrokeThickness="1" 
+                    Padding="20">
+                <VerticalStackLayout Spacing="12">
+
+                    <!-- 1. Libro (id_libro) -->
+                    <Label Text="Libro:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+                    <Picker x:Name="pickerLibro" 
+                            Title="Seleccione un libro" 
+                            ItemDisplayBinding="{Binding TituloConStock}" 
+                            BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                            TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
+                            TitleColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
+                            HeightRequest="45"/>
+
+                    <!-- 2. Lector (id_lector) -->
+                    <Label Text="Lector:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+                    <Picker x:Name="pickerLector" 
+                            Title="Seleccione un lector" 
+                            ItemDisplayBinding="{Binding DescripcionLector}" 
+                            BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                            TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
+                            TitleColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
+                            HeightRequest="45"/>
+
+                    <!-- 3. Fecha de Préstamo -->
+                    <Label Text="Fecha de Préstamo:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+                    <DatePicker x:Name="dpFechaPrestamo" 
+                                Format="yyyy-MM-dd" 
+                                BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                                TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
+                                HeightRequest="45"/>
+
+                    <!-- 4. Fecha de Devolución Esperada -->
+                    <Label Text="Fecha de Devolución Esperada:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+                    <DatePicker x:Name="dpFechaDevolucionEsperada" 
+                                Format="yyyy-MM-dd" 
+                                BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                                TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
+                                HeightRequest="45"/>
+
+                    <!-- 5. Fecha Real de Devolución (recha_real_devolucion) -->
+                    <Label Text="Fecha Real de Devolución:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+                    <Entry x:Name="txtFechaRealDevolucion" 
+                           Placeholder="Opcional (al devolver el libro)" 
+                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                           TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
+                           PlaceholderColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
+                           HeightRequest="45"/>
+
+                    <!-- 6. Estado del Préstamo -->
+                    <Label Text="Estado del Préstamo:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+                    <Picker x:Name="pickerEstado" 
+                            Title="Seleccione el estado" 
+                            BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                            TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
+                            TitleColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
+                            HeightRequest="45">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Prestado</x:String>
+                                <x:String>Devuelto</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <!-- 7. Observaciones -->
+                    <Label Text="Observaciones:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+                    <Entry x:Name="txtObservaciones" 
+                           Placeholder="Observaciones del préstamo" 
+                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                           TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
+                           PlaceholderColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
+                           HeightRequest="45"/>
+
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Botones de Acción -->
+            <VerticalStackLayout Spacing="10" Margin="0,5,0,10">
+                <Button x:Name="BtnGuardar"
+                        Text="Guardar Préstamo" 
+                        BackgroundColor="#2ecc71" 
+                        TextColor="White" 
+                        FontAttributes="Bold" 
+                        CornerRadius="10"
+                        HeightRequest="50"
+                        Clicked="guardarPrestamoClicked"/>
+
+                <Button x:Name="BtnEditar"
+                        Text="Editar" 
+                        BackgroundColor="#f39c12" 
+                        TextColor="White" 
+                        FontAttributes="Bold" 
+                        CornerRadius="10"
+                        HeightRequest="50"
+                        IsVisible="False"
+                        Clicked="BtnEditar_Clicked"/>
+
+                <Button x:Name="BtnEliminar"
+                        Text="Eliminar" 
+                        BackgroundColor="#e74c3c" 
+                        TextColor="White" 
+                        FontAttributes="Bold" 
+                        CornerRadius="10"
+                        HeightRequest="50"
+                        IsVisible="False"
+                        Clicked="BtnEliminar_Clicked"/>
+
+                <Button Text="Cancelar/Volver" 
+                        BackgroundColor="{AppThemeBinding Light=#e0e0e0, Dark=#2c2c2e}" 
+                        TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}" 
+                        FontAttributes="Bold" 
+                        CornerRadius="10"
+                        HeightRequest="50"
+                        Clicked="cancelarPrestamoClicked"/>
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
