@@ -1071,3 +1071,15 @@ C:\Users\femgatica\source\repos\PrestaLibros\obj\Debug\net10.0-windows10.0.19041
 C:\Users\femgatica\source\repos\PrestaLibros\obj\Debug\net10.0-windows10.0.19041.0\win-x64\qualifiers.txt
 C:\Users\femgatica\source\repos\PrestaLibros\obj\Debug\net10.0-windows10.0.19041.0\win-x64\qualifiers.txt.intermediate
 C:\Users\femgatica\source\repos\PrestaLibros\obj\Debug\net10.0-windows10.0.19041.0\win-x64\MultipleQualifiersPerDimensionFound.txt
+D:\Documentos\Intecap\MAUI\PrestaLibros\bin\Debug\net10.0-windows10.0.19041.0\win-x64\DirectML.dll
+D:\Documentos\Intecap\MAUI\PrestaLibros\bin\Debug\net10.0-windows10.0.19041.0\win-x64\Microsoft.UI.Designer.dll
+D:\Documentos\Intecap\MAUI\PrestaLibros\bin\Debug\net10.0-windows10.0.19041.0\win-x64\Microsoft.Windows.AI.AICapabilities.dll
+D:\Documentos\Intecap\MAUI\PrestaLibros\bin\Debug\net10.0-windows10.0.19041.0\win-x64\Microsoft.Windows.AI.MachineLearning.dll
+D:\Documentos\Intecap\MAUI\PrestaLibros\bin\Debug\net10.0-windows10.0.19041.0\win-x64\onnxruntime.dll
+D:\Documentos\Intecap\MAUI\PrestaLibros\bin\Debug\net10.0-windows10.0.19041.0\win-x64\onnxruntime_providers_shared.dll
+D:\Documentos\Intecap\MAUI\PrestaLibros\bin\Debug\net10.0-windows10.0.19041.0\win-x64\workloads.j32.json
+D:\Documentos\Intecap\MAUI\PrestaLibros\bin\Debug\net10.0-windows10.0.19041.0\win-x64\Microsoft.Graphics.ImagingInternal.ImageObjectRemover.winmd
+D:\Documentos\Intecap\MAUI\PrestaLibros\bin\Debug\net10.0-windows10.0.19041.0\win-x64\Microsoft.Windows.AI.MachineLearning.winmd
+D:\Documentos\Intecap\MAUI\PrestaLibros\bin\Debug\net10.0-windows10.0.19041.0\win-x64\Microsoft.Windows.Foundation.winmd
+D:\Documentos\Intecap\MAUI\PrestaLibros\bin\Debug\net10.0-windows10.0.19041.0\win-x64\Microsoft.Windows.Storage.Pickers.winmd
+D:\Documentos\Intecap\MAUI\PrestaLibros\bin\Debug\net10.0-windows10.0.19041.0\win-x64\Microsoft.WindowsAppRuntime.pri

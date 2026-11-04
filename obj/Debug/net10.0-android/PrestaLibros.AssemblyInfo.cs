@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PrestaLibros")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+686ba210a65f137972ba601ba7106cda7407a850")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+2ca7d84f632ce99abc1c6240be2de37d2591b60a")]
 [assembly: System.Reflection.AssemblyProductAttribute("PrestaLibros")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PrestaLibros")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

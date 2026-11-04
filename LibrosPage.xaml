@@ -9,122 +9,220 @@
         <VerticalStackLayout Padding="24" Spacing="16">
 
             <!-- Título Principal -->
-            <Label Text="📖 Registrar Nuevo Libro" 
-                   FontSize="22" 
-                   FontAttributes="Bold" 
-                   TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}" 
+            <Label Text="📖 Registrar Nuevo Libro"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
                    HorizontalOptions="Center"
                    Margin="0,0,0,5"/>
 
-            <!-- Tarjeta contenedora con esquinas redondeadas -->
-            <Border BackgroundColor="{AppThemeBinding Light=White, Dark=#1e1e1e}" 
-                    StrokeShape="RoundRectangle 16" 
+            <!-- Tarjeta de Información del Libro -->
+            <Border BackgroundColor="{AppThemeBinding Light=White, Dark=#1e1e1e}"
+                    StrokeShape="RoundRectangle 16"
                     Stroke="{AppThemeBinding Light=#e2e8f0, Dark=#333333}"
-                    StrokeThickness="1" 
+                    StrokeThickness="1"
                     Padding="20">
+
                 <VerticalStackLayout Spacing="12">
 
-                    <Label Text="ISBN:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
-                    <Entry x:Name="txtIsbn" 
-                           Placeholder="Ej: 978-3-16-148410-0" 
-                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                    <!-- ISBN -->
+                    <Label Text="ISBN:"
+                           FontSize="13"
+                           FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+
+                    <Entry x:Name="txtIsbn"
+                           Placeholder="Ej: 978-3-16-148410-0"
+                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}"
                            TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
                            PlaceholderColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
                            HeightRequest="45"/>
 
-                    <Label Text="Título:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
-                    <Entry x:Name="txtTitulo" 
-                           Placeholder="Título del libro" 
-                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                    <!-- Título -->
+                    <Label Text="Título:"
+                           FontSize="13"
+                           FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+
+                    <Entry x:Name="txtTitulo"
+                           Placeholder="Título del libro"
+                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}"
                            TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
                            PlaceholderColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
                            HeightRequest="45"/>
 
-                    <Label Text="Autor:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
-                    <Entry x:Name="txtAutor" 
-                           Placeholder="Autor o autores" 
-                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                    <!-- Autor -->
+                    <Label Text="Autor:"
+                           FontSize="13"
+                           FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+
+                    <Entry x:Name="txtAutor"
+                           Placeholder="Autor o autores"
+                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}"
                            TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
                            PlaceholderColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
                            HeightRequest="45"/>
 
-                    <Label Text="Editorial:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
-                    <Entry x:Name="txtEditorial" 
-                           Placeholder="Editorial" 
-                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                    <!-- Editorial -->
+                    <Label Text="Editorial:"
+                           FontSize="13"
+                           FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+
+                    <Entry x:Name="txtEditorial"
+                           Placeholder="Editorial"
+                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}"
                            TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
                            PlaceholderColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
                            HeightRequest="45"/>
 
-                    <Label Text="Año de Publicación:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
-                    <Entry x:Name="txtAnio" 
-                           Placeholder="Ej: 2023" 
-                           Keyboard="Numeric" 
-                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                    <!-- Año de publicación -->
+                    <Label Text="Año de Publicación:"
+                           FontSize="13"
+                           FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+
+                    <Entry x:Name="txtAnio"
+                           Placeholder="Ej: 2023"
+                           Keyboard="Numeric"
+                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}"
                            TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
                            PlaceholderColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
                            HeightRequest="45"/>
 
-                    <Label Text="Ruta o URL Portada:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
-                    <Entry x:Name="txtPortada" 
-                           Placeholder="Opcional (ej: portada.jpg)" 
-                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                    <!-- Ruta de portada -->
+                    <Label Text="Ruta de la portada:"
+                           FontSize="13"
+                           FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+
+                    <Entry x:Name="txtPortada"
+                           Placeholder="Se asignará al seleccionar una fotografía"
+                           IsReadOnly="True"
+                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}"
                            TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
                            PlaceholderColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
+                           FontSize="11"
                            HeightRequest="45"/>
 
-                    <Label Text="Stock Disponible:" FontSize="13" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
-                    <Entry x:Name="txtStock" 
-                           Placeholder="Ej: 5" 
-                           Keyboard="Numeric" 
-                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}" 
+                    <!-- Vista previa de portada -->
+                    <Border x:Name="contenedorPortada"
+                            Stroke="{AppThemeBinding Light=#D5D8DC, Dark=#454545}"
+                            StrokeThickness="1"
+                            BackgroundColor="{AppThemeBinding Light=#F5F6FA, Dark=#252525}"
+                            Padding="8"
+                            Margin="0,10,0,10"
+                            StrokeShape="RoundRectangle 12"
+                            HorizontalOptions="Center"
+                            IsVisible="False">
+
+                        <VerticalStackLayout Spacing="8">
+
+                            <Label Text="Portada del libro"
+                                   FontSize="13"
+                                   FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"
+                                   HorizontalOptions="Center"/>
+
+                            <Image x:Name="portadaImagen"
+                                   HeightRequest="500"
+                                   WidthRequest="500"
+                                   Aspect="AspectFit"
+                                   IsVisible="False"/>
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                    <!-- Stock -->
+                    <Label Text="Stock Disponible:"
+                           FontSize="13"
+                           FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light=#34495e, Dark=#d1d5db}"/>
+
+                    <Entry x:Name="txtStock"
+                           Placeholder="Ej: 5"
+                           Keyboard="Numeric"
+                           BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#2c2c2e}"
                            TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}"
                            PlaceholderColor="{AppThemeBinding Light=#95a5a6, Dark=#8e8e93}"
                            HeightRequest="45"/>
 
                 </VerticalStackLayout>
+
             </Border>
 
             <!-- Botones de Acción -->
-            <VerticalStackLayout Spacing="10" Margin="0,5,0,10">
+            <VerticalStackLayout Spacing="12"
+                                 Margin="0,10,0,15">
+
+                <!-- Guardar -->
                 <Button x:Name="BtnGuardar"
-                        Text="Guardar Libro" 
-                        BackgroundColor="#2ecc71" 
-                        TextColor="White" 
-                        FontAttributes="Bold" 
-                        CornerRadius="10"
-                        HeightRequest="50"
+                        Text="💾  Guardar Libro"
+                        BackgroundColor="#27AE60"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        CornerRadius="12"
+                        HeightRequest="52"
+                        Padding="15,0"
                         Clicked="guardarLibroClicked"/>
 
+                <!-- Editar -->
                 <Button x:Name="BtnEditar"
-                        Text="Editar" 
-                        BackgroundColor="#f39c12" 
-                        TextColor="White" 
-                        FontAttributes="Bold" 
-                        CornerRadius="10"
-                        HeightRequest="50"
+                        Text="✏️  Editar Libro"
+                        BackgroundColor="#EFA126"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        CornerRadius="12"
+                        HeightRequest="52"
+                        Padding="15,0"
                         IsVisible="False"
                         Clicked="BtnEditar_Clicked"/>
 
+                <!-- Eliminar -->
                 <Button x:Name="BtnEliminar"
-                        Text="Eliminar" 
-                        BackgroundColor="#e74c3c" 
-                        TextColor="White" 
-                        FontAttributes="Bold" 
-                        CornerRadius="10"
-                        HeightRequest="50"
+                        Text="🗑️  Eliminar Libro"
+                        BackgroundColor="#E74C3C"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        CornerRadius="12"
+                        HeightRequest="52"
+                        Padding="15,0"
                         IsVisible="False"
                         Clicked="BtnEliminar_Clicked"/>
 
-                <Button Text="Cancelar/Volver" 
-                        BackgroundColor="{AppThemeBinding Light=#e0e0e0, Dark=#2c2c2e}" 
-                        TextColor="{AppThemeBinding Light=#2c3e50, Dark=#ffffff}" 
-                        FontAttributes="Bold" 
-                        CornerRadius="10"
+                <!-- Cancelar / Volver -->
+                <Button Text="↩️  Cancelar / Volver"
+                        BackgroundColor="{AppThemeBinding Light=#E8EAED, Dark=#343438}"
+                        TextColor="{AppThemeBinding Light=#34495E, Dark=#FFFFFF}"
+                        FontAttributes="Bold"
+                        FontSize="15"
+                        CornerRadius="12"
                         HeightRequest="50"
+                        Padding="15,0"
                         Clicked="cancelarLibroClicked"/>
+
+                <!-- Seleccionar fotografía -->
+                <Button x:Name="seleccionarPortadaBoton"
+                        Text="📷  Seleccionar Foto de Portada"
+                        BackgroundColor="{AppThemeBinding Light=#DCEEFF, Dark=#193653}"
+                        TextColor="{AppThemeBinding Light=#2471A3, Dark=#85C1E9}"
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        CornerRadius="12"
+                        HeightRequest="48"
+                        BorderColor="{AppThemeBinding Light=#AED6F1, Dark=#2874A6}"
+                        BorderWidth="1"
+                        IsVisible="False"
+                        Clicked="seleccionarPortadaClicked"/>
+
             </VerticalStackLayout>
 
         </VerticalStackLayout>
     </ScrollView>
+
 </ContentPage>

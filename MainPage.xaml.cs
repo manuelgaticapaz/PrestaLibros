@@ -8,13 +8,23 @@ namespace PrestaLibros
         public MainPage()
         {
             InitializeComponent();
-            try { BaseDeDatos.ObtenerConeccion(); } catch { }
+
+            try
+            {
+                BaseDeDatos.ObtenerConeccion();
+            }
+            catch
+            {
+                // Si falla al iniciar, dejamos pasar para no cerrar la app de golpe
+            }
+
             CargarLibros();
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
+
             // Recargar automáticamente según la pestaña seleccionada
             if (seccionActual == "Libros")
             {
@@ -30,7 +40,7 @@ namespace PrestaLibros
             }
         }
 
-        // --- CÓDIGO PARA CARGAR LOS LIBROS DE LA BASE DE DATOS ---
+        // --- CARGAR LIBROS ---
         private void CargarLibros()
         {
             try
@@ -42,10 +52,11 @@ namespace PrestaLibros
             }
             catch (Exception ex)
             {
-                DisplayAlert("Error", $"No se pudieron cargar los libros: {ex.Message}", "OK");
+                DisplayAlert("Error", "No se pudieron cargar los libros: " + ex.Message, "OK");
             }
         }
 
+        // --- CARGAR LECTORES ---
         private void CargarLectores()
         {
             try
@@ -57,38 +68,59 @@ namespace PrestaLibros
             }
             catch (Exception ex)
             {
-                DisplayAlert("Error", $"No se pudieron cargar los lectores: {ex.Message}", "OK");
+                DisplayAlert("Error", "No se pudieron cargar los lectores: " + ex.Message, "OK");
             }
         }
 
+        // --- CARGAR PRÉSTAMOS (Usando ciclos normales para buscar nombres) ---
         private void CargarPrestamos()
         {
             try
             {
                 CvElementos.ItemTemplate = (DataTemplate)Resources["PrestamoTemplate"];
                 var conexion = BaseDeDatos.ObtenerConeccion();
+
                 var listaPrestamos = conexion.Table<Prestamo>().ToList();
                 var listaLibros = conexion.Table<Libro>().ToList();
                 var listaLectores = conexion.Table<Lector>().ToList();
 
-                // Asociar datos del libro y lector para mostrarlos en la tarjeta
+                // Recorremos cada préstamo con un ciclo básico para asignar el libro y lector
                 foreach (var prestamo in listaPrestamos)
                 {
-                    var libro = listaLibros.FirstOrDefault(l => l.id_libro == prestamo.id_libro);
-                    var lector = listaLectores.FirstOrDefault(lec => lec.id_lector == prestamo.id_lector);
+                    // Buscar el título del libro manualmente
+                    string tituloEncontrado = "Libro #" + prestamo.id_libro;
+                    foreach (var libro in listaLibros)
+                    {
+                        if (libro.id_libro == prestamo.id_libro)
+                        {
+                            tituloEncontrado = libro.titulo;
+                            break;
+                        }
+                    }
+                    prestamo.TituloLibro = tituloEncontrado;
 
-                    prestamo.TituloLibro = libro != null ? libro.titulo : $"Libro #{prestamo.id_libro}";
-                    prestamo.NombreLector = lector != null ? $"{lector.nombres} {lector.apellidos}".Trim() : $"Lector #{prestamo.id_lector}";
+                    // Buscar el nombre del lector manualmente
+                    string nombreEncontrado = "Lector #" + prestamo.id_lector;
+                    foreach (var lector in listaLectores)
+                    {
+                        if (lector.id_lector == prestamo.id_lector)
+                        {
+                            nombreEncontrado = lector.nombres + " " + lector.apellidos;
+                            break;
+                        }
+                    }
+                    prestamo.NombreLector = nombreEncontrado.Trim();
                 }
 
                 CvElementos.ItemsSource = listaPrestamos;
             }
             catch (Exception ex)
             {
-                DisplayAlert("Error", $"No se pudieron cargar los préstamos: {ex.Message}", "OK");
+                DisplayAlert("Error", "No se pudieron cargar los préstamos: " + ex.Message, "OK");
             }
         }
 
+        // --- CAMBIAR ESTILO DE LOS BOTONES DE PESTAÑAS ---
         private void ActualizarEstiloPestanas(Button activa, Button inactiva1, Button inactiva2)
         {
             activa.BackgroundColor = Color.FromArgb("#3498db");
@@ -105,11 +137,11 @@ namespace PrestaLibros
             inactiva2.TextColor = textoInactivo;
         }
 
+        // --- EVENTOS DE LOS BOTONES DE FILTRO ---
         private void OnFiltroLibrosClicked(object sender, EventArgs e)
         {
             seccionActual = "Libros";
             LblSeccionTitulo.Text = "Gestión de Libros";
-
             ActualizarEstiloPestanas(BtnLibros, BtnLectores, BtnPrestamos);
             CargarLibros();
         }
@@ -118,7 +150,6 @@ namespace PrestaLibros
         {
             seccionActual = "Lectores";
             LblSeccionTitulo.Text = "Gestión de Lectores";
-
             ActualizarEstiloPestanas(BtnLectores, BtnLibros, BtnPrestamos);
             CargarLectores();
         }
@@ -127,14 +158,13 @@ namespace PrestaLibros
         {
             seccionActual = "Prestamos";
             LblSeccionTitulo.Text = "Gestión de Préstamos";
-
             ActualizarEstiloPestanas(BtnPrestamos, BtnLibros, BtnLectores);
             CargarPrestamos();
         }
 
+        // --- BOTONES DE ACCIÓN ---
         private async void OnNuevoElementoClicked(object sender, EventArgs e)
         {
-            // Dependiendo de la sección activa, el botón "+" abre la página correspondiente
             if (seccionActual == "Libros")
             {
                 await Navigation.PushAsync(new LibrosPage());
@@ -156,6 +186,10 @@ namespace PrestaLibros
                 if (button.CommandParameter is Libro libroSeleccionado)
                 {
                     await Navigation.PushAsync(new LibrosPage(libroSeleccionado, true));
+                }
+                else if (button.CommandParameter is Lector lectorSeleccionado) 
+                {
+                    await Navigation.PushAsync(new LectoresPage(lectorSeleccionado, true));
                 }
                 else if (button.CommandParameter is Prestamo prestamoSeleccionado)
                 {
